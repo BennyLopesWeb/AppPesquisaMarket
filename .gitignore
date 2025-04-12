@@ -1,0 +1,29 @@
+# Node (React)
+node_modules/
+build/
+dist/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python (FastAPI)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.env.*
+instance/
+.DS_Store
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
