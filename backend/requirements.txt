@@ -1,3 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 sqlalchemy
+pydantic
+mysqlclient  # ou psycopg2 se usar PostgreSQL
