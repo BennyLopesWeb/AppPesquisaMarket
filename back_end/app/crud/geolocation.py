@@ -1,7 +1,7 @@
 # back_end/crud/geolocation.py
 
 from sqlalchemy.orm import Session
-from back_end.app import models, schemas
+from app import models, schemas
 
 
 def create_geolocation(db: Session, geolocation: schemas.GeolocationCreate) -> models.Geolocation:
