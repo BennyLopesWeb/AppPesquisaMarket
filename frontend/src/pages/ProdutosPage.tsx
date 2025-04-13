@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
+api.get('/produtos').then(res => {
+  console.log(res.data);
+});
+
 const ProdutosPage = () => {
   const [produtos, setProdutos] = useState([]);
   const [nome, setNome] = useState("");

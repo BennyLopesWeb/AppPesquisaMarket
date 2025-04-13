@@ -2,6 +2,10 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
+api.get('/Mercados').then(res => {
+  console.log(res.data);
+});
+
 const MercadosPage = () => {
   const [mercados, setMercados] = useState([]);
   const [nome, setNome] = useState("");

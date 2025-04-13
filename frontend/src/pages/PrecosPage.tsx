@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
+api.get('/Precos').then(res => {
+  console.log(res.data);
+});
+
 const PrecosPage = () => {
   const [precos, setPrecos] = useState([]);
   const [valor, setValor] = useState("");
