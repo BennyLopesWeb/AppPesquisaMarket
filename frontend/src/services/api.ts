@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000", // ajuste conforme o backend
+  baseURL: "https://apppesquisamarket-1.onrender.com", // ajuste conforme o backend
 });
 
 api.interceptors.request.use((config) => {
