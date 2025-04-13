@@ -2,9 +2,9 @@
 
 from sqlalchemy.orm import Session
 from typing import Optional, List
-from back_end.app.models.user import User
-from back_end.app.schemas.user import UserCreate
-from back_end.app.core.security import hash_password
+from app.models.user import User
+from app.schemas.user import UserCreate
+from app.core.security import hash_password
 
 def create_user(db: Session, user_data: UserCreate) -> Optional[User]:
     """Creates a new user if the email is not already registered."""

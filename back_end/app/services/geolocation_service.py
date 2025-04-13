@@ -1,7 +1,7 @@
 # back_end/services/geolocation_service.py
 
 from sqlalchemy.orm import Session
-from back_end.app import models, schemas
+from app import models, schemas
 
 
 def create_geolocation(db: Session, geolocation_data: schemas.GeolocationCreate) -> models.Geolocation:
