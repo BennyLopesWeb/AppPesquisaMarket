@@ -1,9 +1,9 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import ProdutosPage from "./pages/Produtos";
-import MercadosPage from "./pages/Mercados";
-import PrecosPage from "./pages/Precos";
+import ProdutosPage from "./pages/ProdutosPage";
+import MercadosPage from "./pages/MercadosPage";
+import PrecosPage from "./pages/PrecosPage";
 
 function App() {
   return (
