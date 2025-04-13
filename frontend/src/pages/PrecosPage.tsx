@@ -1,11 +1,6 @@
-
 // src/pages/Precos.tsx
 import { useEffect, useState } from "react";
 import api from "../services/api";
-
-api.get('/Precos').then(res => {
-  console.log(res.data);
-});
 
 const PrecosPage = () => {
   const [precos, setPrecos] = useState([]);
@@ -14,16 +9,22 @@ const PrecosPage = () => {
   const [mercadoId, setMercadoId] = useState("");
 
   const fetchPrecos = async () => {
-    const res = await api.get("/prices/");
+    const res = await api.get("/prices/"); // ou "/Precos/" dependendo do backend
     setPrecos(res.data);
   };
 
   const createPreco = async () => {
+    if (!valor || !produtoId || !mercadoId) {
+      alert("Preencha todos os campos.");
+      return;
+    }
+
     await api.post("/prices/", {
       value: parseFloat(valor),
       product_id: parseInt(produtoId),
       market_id: parseInt(mercadoId),
     });
+
     setValor("");
     setProdutoId("");
     setMercadoId("");
@@ -46,7 +47,7 @@ const PrecosPage = () => {
         <input
           className="border px-2 py-1 mr-2"
           value={valor}
-          placeholder="Valor"
+          placeholder="Valor (ex: 10.99)"
           onChange={(e) => setValor(e.target.value)}
         />
         <input
@@ -68,7 +69,7 @@ const PrecosPage = () => {
       <ul>
         {precos.map((p: any) => (
           <li key={p.id} className="mb-2">
-            R$ {p.value.toFixed(2)} - Produto {p.product_id}, Mercado {p.market_id} {" "}
+            R$ {p.value.toFixed(2)} - Produto {p.product_id}, Mercado {p.market_id}{" "}
             <button className="text-red-500" onClick={() => deletePreco(p.id)}>
               Excluir
             </button>

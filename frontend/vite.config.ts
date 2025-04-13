@@ -7,14 +7,15 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // permite importar com @/diretorio
+      '@': path.resolve(__dirname, 'src'),
     },
   },
+  base: './', // <- adiciona isso se necessário
   build: {
-    outDir: 'dist', // pasta de saída do build
-    sourcemap: true, // útil para debug em produção (opcional)
+    outDir: 'dist',
+    sourcemap: true,
   },
   server: {
-    port: 5173, // porta local padrão do Vite
+    port: 5173,
   },
 });

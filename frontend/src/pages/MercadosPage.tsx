@@ -2,10 +2,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
-api.get('/Mercados').then(res => {
-  console.log(res.data);
-});
-
 const MercadosPage = () => {
   const [mercados, setMercados] = useState([]);
   const [nome, setNome] = useState("");
@@ -58,7 +54,7 @@ const MercadosPage = () => {
       <ul>
         {mercados.map((m: any) => (
           <li key={m.id} className="mb-2">
-            {m.name} ({m.location}) {" "}
+            {m.name} ({m.location}){" "}
             <button
               className="text-red-500"
               onClick={() => deleteMercado(m.id)}
@@ -73,4 +69,3 @@ const MercadosPage = () => {
 };
 
 export default MercadosPage;
-

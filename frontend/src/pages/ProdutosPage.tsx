@@ -1,9 +1,6 @@
+// src/pages/Produtos.tsx
 import { useEffect, useState } from "react";
 import api from "../services/api";
-
-api.get('/produtos').then(res => {
-  console.log(res.data);
-});
 
 const ProdutosPage = () => {
   const [produtos, setProdutos] = useState([]);
@@ -11,20 +8,37 @@ const ProdutosPage = () => {
   const [categoria, setCategoria] = useState("");
 
   const fetchProdutos = async () => {
-    const res = await api.get("/products/");
-    setProdutos(res.data);
+    try {
+      const res = await api.get("/products/");
+      setProdutos(res.data);
+    } catch (err) {
+      console.error("Erro ao buscar produtos", err);
+    }
   };
 
   const createProduto = async () => {
-    await api.post("/products/", { name: nome, category: categoria });
-    setNome("");
-    setCategoria("");
-    fetchProdutos();
+    if (!nome || !categoria) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    try {
+      await api.post("/products/", { name: nome, category: categoria });
+      setNome("");
+      setCategoria("");
+      fetchProdutos();
+    } catch (err) {
+      console.error("Erro ao criar produto", err);
+    }
   };
 
   const deleteProduto = async (id: number) => {
-    await api.delete(`/products/${id}`);
-    fetchProdutos();
+    try {
+      await api.delete(`/products/${id}`);
+      fetchProdutos();
+    } catch (err) {
+      console.error("Erro ao excluir produto", err);
+    }
   };
 
   useEffect(() => {
@@ -55,7 +69,9 @@ const ProdutosPage = () => {
         {produtos.map((p: any) => (
           <li key={p.id} className="mb-2">
             {p.name} ({p.category}){" "}
-            <button className="text-red-500" onClick={() => deleteProduto(p.id)}>Excluir</button>
+            <button className="text-red-500" onClick={() => deleteProduto(p.id)}>
+              Excluir
+            </button>
           </li>
         ))}
       </ul>
