@@ -2,7 +2,7 @@
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from back_end.app.database.database import Base
+from app.database.database import Base
 
 class Product(Base):
     __tablename__ = "products"

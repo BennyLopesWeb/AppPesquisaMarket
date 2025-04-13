@@ -1,8 +1,8 @@
 # back_end/crud/price.py
 
 from sqlalchemy.orm import Session
-from back_end.app.models.price import Price
-from back_end.app.schemas.price import PriceCreate
+from app.models.price import Price
+from app.schemas.price import PriceCreate
 
 
 def create_price(db: Session, price: PriceCreate) -> Price:

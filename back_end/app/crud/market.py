@@ -1,8 +1,8 @@
 # back_end/crud/market.py
 
 from sqlalchemy.orm import Session
-from back_end.app.models.market import Market
-from back_end.app.schemas.market import MarketCreate
+from app.models.market import Market
+from app.schemas.market import MarketCreate
 
 
 def create_market(db: Session, market: MarketCreate) -> Market:

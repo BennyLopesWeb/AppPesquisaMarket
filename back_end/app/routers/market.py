@@ -3,11 +3,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from back_end.app.database import get_db
-from back_end.app.schemas.market import MarketCreate, MarketRead
-from back_end.app.core.security import get_current_user
-from back_end.app.models.user import User
-from back_end.app.services import market_service
+from app.database import get_db
+from app.schemas.market import MarketCreate, MarketRead
+from app.core.security import get_current_user
+from app.models.user import User
+from app.services import market_service
 
 router = APIRouter(prefix="/markets", tags=["Markets"])
 

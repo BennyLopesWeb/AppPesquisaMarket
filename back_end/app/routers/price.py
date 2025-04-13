@@ -3,11 +3,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from back_end.app.database import get_db
-from back_end.app.schemas.price import PriceCreate, PriceRead
-from back_end.app.services import price_service
-from back_end.app.core.security import get_current_user
-from back_end.app.models.user import User
+from app.database import get_db
+from app.schemas.price import PriceCreate, PriceRead
+from app.services import price_service
+from app.core.security import get_current_user
+from app.models.user import User
 
 router = APIRouter(prefix="/prices", tags=["Prices"])
 
