@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.env.*  # Para diferentes ambientes .env.dev, .env.prod etc.
+
+# Database
+*.sqlite3
+*.db
+*.db-journal
+alembic.ini
+
+# MySQL dumps (caso você gere arquivos de backup)
+*.sql
+*.dump
+
+# IDEs e editores
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Pytest
+.pytest_cache/
+htmlcov/
+coverage.xml
+cov.html
+
+# Alembic
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# Outros
+*.bak
+*.swp
+*.tmp
