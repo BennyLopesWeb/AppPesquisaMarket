@@ -1,8 +1,8 @@
 # back_end/services/product_service.py
 
 from sqlalchemy.orm import Session
-from back_end.app import schemas
-from back_end.app import crud
+from backend.app import schemas
+from backend.app import crud
 
 
 def create_product(db: Session, product_data: schemas.ProductCreate):

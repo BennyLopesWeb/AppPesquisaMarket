@@ -1,8 +1,8 @@
 import os
 
 diretorio = "backend"
-antigo = "app_core"
-novo = "backend.app_core"
+antigo = "back_end"
+novo = "backend"
 
 def atualizar_imports_em_arquivo(caminho_arquivo):
     with open(caminho_arquivo, "r", encoding="utf-8") as f:

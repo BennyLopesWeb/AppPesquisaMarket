@@ -1,26 +1,15 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
+from . import Base  # Importando o Base centralizado do __init__.py
 
-from sqlalchemy import create_engine
+# app/database/database.py
 
-# URL correta para MySQL
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:Befelo@localhost:3306/marketdb"
+from backend.app.database import SessionLocal, get_db, engine, Base  # Importações do __init__.py
 
-# NÃO passar connect_args no MySQL!
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# Este arquivo atua como ponto de reexportação dos recursos de conexão com o banco de dados,
+# centralizados em `app/database/__init__.py`
 
-
-# Criação da sessão
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-# Base para os modelos
-Base = declarative_base()
-
-# Função para obter a sessão de banco (injeção de dependência)
-def get_db():
-    db: Session = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+__all__ = [
+    "SessionLocal",
+    "get_db",
+    "engine",
+    "Base",
+]

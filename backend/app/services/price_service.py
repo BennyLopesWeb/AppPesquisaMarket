@@ -3,9 +3,9 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from back_end.app.crud import price as crud_price
-from back_end.app.schemas.price import PriceCreate
-from back_end.app.models.price import Price
+from backend.app.crud import price as crud_price
+from backend.app.schemas.price import PriceCreate
+from backend.app.models.price import Price
 
 
 def create_price_service(db: Session, price_data: PriceCreate) -> Price:

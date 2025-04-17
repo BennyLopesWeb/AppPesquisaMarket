@@ -16,3 +16,26 @@ ReactDOM.createRoot(rootElement).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+
+fetch("http://localhost:8000/api/ping")
+  .then(res => res.json())
+  .then(data => console.log(data.message))
+  .catch(err => console.error("Erro ao conectar com o backend:", err));
+
+
+
+
+import React from "react";
+import Ping from "./components/Ping";
+
+function App() {
+  return (
+    <div className="App">
+      <Ping />
+    </div>
+  );
+}
+
+export default App;
+

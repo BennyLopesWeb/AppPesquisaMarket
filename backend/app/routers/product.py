@@ -2,11 +2,11 @@
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from back_end.app.database import get_db
-from back_end.app.schemas.product import ProductCreate, ProductRead
-from back_end.app.core.security import get_current_user
-from back_end.app.models.user import User
-from back_end.app.services import product_service
+from backend.app.database import get_db
+from backend.app.schemas.product import ProductCreate, ProductRead
+from backend.app.core.security import get_current_user
+from backend.app.models.user import User
+from backend.app.services import product_service
 
 router = APIRouter(prefix="/products", tags=["Products"])  # ✅ Aqui está o router correto
 

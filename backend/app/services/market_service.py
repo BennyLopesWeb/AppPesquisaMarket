@@ -2,9 +2,9 @@
 
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from back_end.app.crud import market as crud_market
-from back_end.app.schemas.market import MarketCreate
-from back_end.app.models.market import Market
+from backend.app.crud import market as crud_market
+from backend.app.schemas.market import MarketCreate
+from backend.app.models.market import Market
 
 
 def create_market_service(db: Session, market_data: MarketCreate) -> Market:
