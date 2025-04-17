@@ -1,9 +1,9 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from back_end.app.database.database import Base
-from back_end.app.models.geolocation import Geolocation
-from back_end.app.models.price import Price
+from backend.app.database.database import Base
+from backend.app.models.geolocation import Geolocation
+from backend.app.models.price import Price
 
 
 class Market(Base):

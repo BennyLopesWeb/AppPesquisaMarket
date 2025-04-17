@@ -9,8 +9,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-from back_end.app.database.database import get_db
-from back_end.app.models.user import User
+from backend.app.database.database import get_db
+from backend.app.models.user import User
 
 # =============================
 # 🔐 CONFIGURAÇÕES DE SEGURANÇA

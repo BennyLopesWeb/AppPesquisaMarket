@@ -1,9 +1,9 @@
 # back_end/crud/user.py
 from fastapi import HTTPException
-from back_end.app.schemas.user import UserCreate
-from back_end.app.core.security import hash_password
+from backend.app.schemas.user import UserCreate
+from backend.app.core.security import hash_password
 from sqlalchemy.orm import Session
-from back_end.app.models.user import User
+from backend.app.models.user import User
 
 
 def create_user(db: Session, user: UserCreate) -> User:
