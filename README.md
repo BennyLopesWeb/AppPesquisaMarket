@@ -1,81 +1,124 @@
-# AppPesquisaMarket
+# 🛒 AppPesquisaMarket
 
-Aplicativo cooperativo para compartilhamento de preços em mercados e supermercados da Costa Ocidental da África.
-
-## ✨ Visão Geral
-
-A plataforma permite que usuários compartilhem e encontrem os melhores preços em produtos de diversos mercados locais, promovendo economia e colaboração comunitária.
-
-## ⚙️ Tecnologias Utilizadas
-
-- **Backend:** FastAPI + SQLAlchemy
-- **Banco de Dados:** SQLite (dev) / MySQL (produção)
-- **Autenticação:** JWT (com senha criptografada - bcrypt)
-- **Migrations:** Alembic
-- **Frontend:** React + TailwindCSS (em desenvolvimento)
-- **Futuro Mobile:** Flutter ou React Native
-
-## 📁 Estrutura do Projeto
-
-```
-app/
-├── crud/               # Funções CRUD para cada modelo
-├── database/           # Conexão com o banco e inicialização
-├── models/             # Modelos SQLAlchemy (User, Product, Market...)
-├── routers/            # Rotas FastAPI por recurso (/users, /products...)
-├── schemas/            # Schemas Pydantic (validação e serialização)
-├── core/               # Segurança e utilitários (ex: JWT, senhas)
-├── main.py             # Ponto de entrada da aplicação FastAPI
-```
-
-## 🔐 Autenticação
-
-- Registro de usuário com senha criptografada (bcrypt)
-- Login com OAuth2PasswordRequestForm
-- Proteção de rotas com dependência `get_current_user`
-
-## ▶️ Rodando Localmente
-
-### Pré-requisitos
-- Python 3.11+
-- Virtualenv ou venv
-
-```bash
-# Crie e ative o ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate    # Windows
-
-# Instale as dependências
-pip install -r requirements.txt
-
-# Execute o servidor
-uvicorn app.main:app --reload
-```
-
-### Banco de Dados (SQLite)
-```bash
-# Criar estrutura inicial
-python app/database/create_db.py
-
-# Ou use alembic para migrations
-alembic revision --autogenerate -m "initial"
-alembic upgrade head
-```
-
-## 🔄 Endpoints Importantes
-
-- POST `/users/` → Criação de usuário
-- POST `/login` → Autenticação e geração do token JWT
-- GET `/products/` → Listar produtos (autenticado)
-- GET `/me` → Dados do usuário autenticado
-
-## 📌 To-do
-- [x] Autenticação com senha criptografada
-- [x] CRUD completo para usuários, produtos, preços, mercados e localização
-- [ ] Integração frontend com API
-- [ ] Aplicativo mobile com Flutter ou React Native
+O **AppPesquisaMarket** é uma plataforma desenvolvida para auxiliar consumidores a **encontrarem os melhores preços de produtos em mercados locais**. A aplicação permite o registro de preços, produtos, mercados e localização, possibilitando ao usuário comparar preços e tomar decisões de compra mais econômicas com base em dados colaborativos.
 
 ---
 
-Desenvolvido com 💙 para empoderar comunidades locais!
+## 🎯 Objetivo
+
+Promover economia para os usuários ao facilitar a comparação de preços de itens em diferentes mercados, com base na localização e dados atualizados pela comunidade.
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+### Backend
+- [FastAPI](https://fastapi.tiangolo.com/) (Python)
+- SQLAlchemy ORM
+- Alembic (migrations)
+- MySQL
+- JWT (autenticação)
+- Pydantic (validações)
+- Docker (em andamento)
+
+### Frontend
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- Tailwind CSS
+- React Router
+- Axios
+- React Hook Form + Yup (validação de formulários)
+- JWT Decode
+
+---
+
+## 🗂️ Estrutura de Diretórios
+AppPesquisaMarket/
+├── backend/
+│ ├── app/
+│ │ ├── crud/
+│ │ ├── database/
+│ │ ├── models/
+│ │ ├── routers/
+│ │ ├── schemas/
+│ │ └── services/
+│ ├── main.py
+│ └── requirements.txt
+├── frontend/
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── services/
+│ │ └── App.jsx
+│ └── vite.config.js
+
+
+
+---
+
+## 🔐 Funcionalidades (Principais)
+
+- ✅ Autenticação com JWT
+- ✅ Cadastro de usuários
+- ✅ Cadastro e listagem de produtos, marcas e categorias
+- ✅ Registro de preços por local
+- ✅ Cadastro de mercados e localização (com base em coordenadas)
+- ✅ Proteção de rotas via token
+- ✅ Integração frontend + backend
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+### Pré-requisitos
+- Python 3.11+
+- Node.js 18+
+- MySQL
+- [Poetry](https://python-poetry.org/) (opcional, se quiser usar)
+- Docker (para futura versão containerizada)
+
+### Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # ou .\venv\Scripts\activate no Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+
+API disponível em: http://localhost:8000/docs
+
+Frontend
+cd frontend
+npm install
+npm run dev
+Frontend disponível em: http://localhost:5173
+
+
+🧪 Funcionalidades de Teste
+Autenticação (login/logout)
+
+Registro de produtos e preços
+
+Dashboard com filtros e gráficos (em andamento)
+
+Verificação de email existente em tempo real
+
+Integração com API protegida por token
+
+📈 Futuras Melhorias
+Integração de mapa para localização dos mercados
+
+Notificações de alerta de preços
+
+Ranking de produtos por economia
+
+Deploy com Docker (Render + Vercel)
+
+Aplicativo mobile com Flutter ou React Native
+
+🧑‍💻 Autor
+Desenvolvido por Benny Lopes
+
+📄 Licença
+Projeto com fins educacionais e comunitários. Licenciado sob MIT License.
